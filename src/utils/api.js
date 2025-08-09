@@ -22,7 +22,8 @@ export const getApiUrl = (endpoint) => {
   }
   
   // For production, use the full URL from environment variables
-  return `${API_BASE_URL}/${cleanEndpoint}`;
+  const cleanBaseUrl = API_BASE_URL.endsWith('/') ? API_BASE_URL.slice(0, -1) : API_BASE_URL;
+  return `${cleanBaseUrl}/${cleanEndpoint}`;
 };
 
 /**
